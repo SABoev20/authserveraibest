@@ -1,8 +1,6 @@
 package project.server.authserver.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +9,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Role {
+
     @Id
-    private String roleName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "Name")
+    private String name;
+
 }

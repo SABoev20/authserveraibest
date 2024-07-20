@@ -26,10 +26,10 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody User user, Authentication authentication){
-        if (!authService.isAdmin(authentication)) {
+    public ResponseEntity<?> register(@RequestBody User user){
+       /* if (!authService.isAdmin(authentication)) {
             return new ResponseEntity<>("Access Denied", HttpStatus.FORBIDDEN);
-        }
+        }*/
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.OK);
     }
 

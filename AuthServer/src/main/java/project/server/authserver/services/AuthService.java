@@ -50,6 +50,6 @@ public class AuthService {
     }
 
     public boolean isAdmin(Authentication authentication){
-        return getUserByToken(authentication).getRole().getRoleName().equals("Admin");
+        return getUserByToken(authentication).getRoles().get(0).equals("Admin");
     }
 }
