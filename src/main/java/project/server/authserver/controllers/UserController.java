@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @GetMapping("/current/role")
-    public Role getCurrent(Authentication authentication){
+    public Role getCurrentRole(Authentication authentication){
         return authService.getUserByToken(authentication).getRole();
     }
 
