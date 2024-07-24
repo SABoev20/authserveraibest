@@ -3,15 +3,11 @@ package project.server.authserver.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import project.server.authserver.models.DTO.LoginRequest;
 import project.server.authserver.models.User;
-import project.server.authserver.models.User2;
 import project.server.authserver.services.AuthService;
 import project.server.authserver.services.UserService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -27,7 +23,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody User2 user){
+    public ResponseEntity<User> register(@RequestBody User user){
        /* if (!authService.isAdmin(authentication)) {
             return new ResponseEntity<>("Access Denied", HttpStatus.FORBIDDEN);
         }*/
