@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import project.server.authserver.models.DTO.UserResponse;
 import project.server.authserver.models.User;
 import project.server.authserver.models.Role;
 import project.server.authserver.services.AuthService;
@@ -38,7 +39,7 @@ public class UserController {
     }
 
     @GetMapping("/current")
-    public User getCurrent(Authentication authentication){
+    public UserResponse getCurrent(Authentication authentication){
         return authService.getUserByToken(authentication);
     }
 
