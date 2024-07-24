@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import project.server.authserver.models.User;
+import project.server.authserver.models.Role;
 import project.server.authserver.services.AuthService;
 import project.server.authserver.services.UserService;
 
