@@ -40,7 +40,13 @@ public class UserController {
 
     @GetMapping("/current")
     public UserResponse getCurrent(Authentication authentication){
-        return authService.getUserByToken(authentication);
+        UserResponse userResponse = new UserResponse();
+        User user = authService.getUserByToken(authentication);
+        userResponse.setEmail(user.getEmail());
+        userResponse.setRole(user.getRole());
+        userResponse.setFirstName(user.getFirstName());
+        userResponse.setLastName(user.getLastName());
+        return userResponse;
     }
 
     @PutMapping(value = "/current")
