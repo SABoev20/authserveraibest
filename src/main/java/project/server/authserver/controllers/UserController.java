@@ -31,6 +31,10 @@ public class UserController {
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
+    @GetMapping("/current/role")
+    public Role getCurrent(Authentication authentication){
+        return authService.getUserByToken(authentication).getRole();
+    }
 
     @GetMapping("/current")
     public User getCurrent(Authentication authentication){
