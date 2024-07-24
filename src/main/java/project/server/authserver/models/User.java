@@ -29,7 +29,7 @@ public class User {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "roleId", nullable = false)
-    @JsonBackReference
+    @JsonManagedReference
     private Role role;
 
     @Column(name = "PasswordHash")
