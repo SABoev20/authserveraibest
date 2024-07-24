@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import project.server.authserver.models.DTO.RoleResponse;
 import project.server.authserver.models.DTO.UserResponse;
 import project.server.authserver.models.User;
 import project.server.authserver.models.Role;
@@ -34,8 +35,12 @@ public class UserController {
     }
 
     @GetMapping("/current/role")
-    public Role getCurrentRole(Authentication authentication){
-        return authService.getUserByToken(authentication).getRole();
+    public RoleResponse getCurrentRole(Authentication authentication){
+        Role role = authService.getUserByToken(authentication).getRole();
+        RoleResponse roleResponse = new RoleResponse();
+        roleResponse.setId(role.getId());
+        roleResponse.setName(role.getName());
+        return roleResponse;
     }
 
     @GetMapping("/current")
